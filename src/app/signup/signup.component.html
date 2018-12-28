@@ -1,0 +1,33 @@
+<md-card align="center" class="md-card">
+  <md-card-title>
+    <img src="../assets/img.jpg" md-card-avatar class="md-card-avatar">
+  </md-card-title>
+  <form [formGroup]="SignupForm" #Signupform="ngForm" (submit)="Signup()">
+    <h3 class="title">Signup</h3>
+    <md-card-content>
+        <md-input-container class="md-input-container">
+          <input mdInput placeholder="Username" formControlName="username" required>
+          <md-error *ngIf="SignupForm.get('username').hasError('required')">
+            Username is <strong>required</strong>
+          </md-error>
+        </md-input-container> <br>
+        <md-input-container class="md-input-container">
+          <input mdInput placeholder="Email address" formControlName="email" required>
+          <md-error *ngIf="SignupForm.get('email').hasError('pattern')"> 
+            Please enter a valid email address
+          </md-error>
+          <md-error *ngIf="SignupForm.get('email').hasError('required')">
+            Email is <strong>required</strong>
+          </md-error>
+        </md-input-container> <br>
+        <md-input-container class="md-input-container" required>
+          <input mdInput placeholder="Password" type="password" formControlName="password" required>
+          <md-error *ngIf="SignupForm.get('password').hasError('required')">
+            Password is <strong>required</strong>
+          </md-error>
+        </md-input-container>
+    </md-card-content>
+    <button md-raised-button [disabled]="!Signupform.form.valid">Signup</button><br><br>
+  </form>
+  <span class="title">Already have an account? <br><a routerLink="/login" class="title"> Login Here </a></span>
+</md-card> 

@@ -1,0 +1,36 @@
+.title{
+    color: white;
+}
+
+.app-container {
+  /* border: 1px solid rgba(0, 0, 0, 0.5); */
+  background-color:#B0BEC5;
+}
+
+.app-sidenav-content {
+  display: flex;
+  background-color: #37474F;
+  /* height: 100%; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.app-sidenav {
+  /* padding: 20px; */
+  background-color: #37474F;
+  color: white;
+}
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+/* @sidebar-width: 240px * 9/16;
+@sidebar-padding: 16px; */
+.sidebar-icon {
+  display: inline-block;
+  margin-right: (240px * 9/16) - 16px;
+  min-width: 40px;;
+  width: 40px;;
+  text-align: left;
+  font-size: 40px;
+  vertical-align: middle;
+}

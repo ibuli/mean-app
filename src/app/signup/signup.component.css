@@ -1,0 +1,22 @@
+.md-card-avatar {
+    height: 100px !important;
+    width: 100px !important;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.md-card {
+    background-color: white !important;
+    width: 35%;
+    margin: 120px auto;
+}
+.md-input-container{
+    /* width: 300px !important; */
+    display: inline;
+}
+.title{
+    color: #33AEE6;
+}
+/* md-input-container.md-default-theme label, 
+ md-input-container.md-default-theme .md-placeholder{
+    color:grey !important;
+} */

@@ -1,0 +1,27 @@
+<md-card align="center" class="md-card">
+  <md-card-title>
+    <img src="../assets/img.jpg" md-card-avatar class="md-card-avatar">
+  </md-card-title>
+  <form [formGroup]="LoginForm" #loginform="ngForm" (submit)="Login()">
+    <h3 class="title">Login</h3>
+    <md-card-content>
+        <md-input-container class="md-input-container">
+          <input mdInput placeholder="Email address" formControlName="email" required>
+          <md-error *ngIf="LoginForm.get('email').hasError('pattern')">
+            Please enter a valid email address
+          </md-error>
+          <md-error *ngIf="LoginForm.get('email').hasError('required')">
+            Email is <strong>required</strong>
+          </md-error>
+        </md-input-container> <br>
+        <md-input-container class="md-input-container" required>
+          <input mdInput placeholder="Password" type="password" formControlName="password" required>
+          <md-error *ngIf="LoginForm.get('email').hasError('required')">
+            Password is <strong>required</strong>
+          </md-error>
+        </md-input-container>
+    </md-card-content>
+    <button md-raised-button [disabled]="!loginform.form.valid">Login</button><br><br>
+  </form>
+  <span class="title"> Don't have an account? </span><br><a routerLink="/signup" class="title"> Signup Here </a>
+</md-card> 
