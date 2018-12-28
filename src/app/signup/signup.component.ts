@@ -12,10 +12,10 @@ const EMAIL_REGEX = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {  
+export class SignupComponent implements OnInit {
   SignupForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, 
+  constructor(public formBuilder: FormBuilder,
               private authService: AuthService,
               private cookieService: CookieService,
               private router: Router) {
@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
    }
   isLoggedIn: boolean;
   ngOnInit() {
-    var token = this.cookieService.get("token");
+    const token = this.cookieService.get('token');
     if (token != null) {
       this.isLoggedIn = this.authService.isLoggedIn();
       this.router.navigate(['/']);
@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
       this.isLoggedIn = this.authService.isLoggedIn();
     }
   }
-  
+
   Signup() {
     this.authService.Signup(this.SignupForm.value).subscribe(
       res => {

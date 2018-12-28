@@ -10,8 +10,8 @@ export class AuthService {
     constructor(private http: Http, private cookieService: CookieService, private router: Router) {  }
 
     Signup(value) {
-        let headers = new Headers();
-        headers.append("Content-Type", "Application/json");
+        const headers = new Headers();
+        headers.append('Content-Type', 'Application/json');
 
         return this.http.post('/api/signup', JSON.stringify(value), { headers: headers })
             .map(res => {
@@ -20,20 +20,20 @@ export class AuthService {
     }
 
     Login(value) {
-        let headers = new Headers();
-        headers.append("Content-Type", "Application/json");
+        const headers = new Headers();
+        headers.append('Content-Type', 'Application/json');
 
         return this.http.post('/api/login', JSON.stringify(value), { headers: headers })
             .map(res => {
                 return res.json();
             });
-	}
+  }
 
-	isLoggedIn(){
-		if(this.cookieService.get("token") != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+  isLoggedIn(){
+    if (this.cookieService.get('token') != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

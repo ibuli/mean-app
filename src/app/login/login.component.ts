@@ -17,10 +17,10 @@ const EMAIL_REGEX = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]
 export class LoginComponent implements OnInit {
   LoginForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, 
-              private authService: AuthService, 
-              private cookieService: CookieService, 
-              private router: Router) { 
+  constructor(public formBuilder: FormBuilder,
+              private authService: AuthService,
+              private cookieService: CookieService,
+              private router: Router) {
     this.LoginForm = this.formBuilder.group({
       email: ['', [ Validators.required,
                     Validators.pattern(EMAIL_REGEX) ]],
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // this.cookieService.removeAll();
-    var token = this.cookieService.get("token");
+    const token = this.cookieService.get('token');
     if (token != null) {
       this.isLoggedIn = this.authService.isLoggedIn();
       this.router.navigate(['/']);
@@ -46,8 +46,8 @@ export class LoginComponent implements OnInit {
       res => {
         console.log(res);
         this.data = res.resObject;
-        if(res.token != undefined) {
-          var key = "token";
+        if (res.token != undefined) {
+          const key = 'token';
           this.cookieService.put(key, res.token);
           this.isLoggedIn = this.authService.isLoggedIn();
           this.router.navigate(['/']);

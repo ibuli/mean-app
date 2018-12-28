@@ -16,6 +16,6 @@ const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
     //Otherwise
     { path: '**', redirectTo: '' }
-  ]; 
+  ];
 
 export const routing = RouterModule.forRoot(routes);
