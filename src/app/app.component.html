@@ -1,42 +1,42 @@
-<md-sidenav-container class="app-container" fullscreen>
-  <md-sidenav #sidenav mode="over" class="app-sidenav">
+<mat-sidenav-container class="app-container" fullscreen>
+  <mat-sidenav #sidenav mode="over" class="app-sidenav">
     <div style="background-image: url('./assets/cover.jpg'); background-size: cover; height:150px; width:300px;">
       <div>
         <img src="./assets/img.jpg" style="background-size: cover; height:50px; width:50px; border-radius: 50%; margin: 50px 10px;">
-        
+
             john.doe@gmail.com
       </div>
     </div>
-    <md-nav-list style="padding:20px;">
+    <mat-nav-list style="padding:20px;">
       <div>
-        <md-icon style="vertical-align: middle">inbox</md-icon>
+        <mat-icon style="vertical-align: middle">inbox</mat-icon>
         <span style="vertical-align: middle; padding-left:10px;"> <a href="#"> Inbox</a></span>
       </div>
-    </md-nav-list>
-  </md-sidenav>
-  
-  <md-toolbar class="app-sidenav-content">
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar class="app-sidenav-content">
       <i class="material-icons app-toolbar-menu title" style="cursor: pointer" (click)="sidenav.toggle()">menu</i> &nbsp;
       <span class="title">MEAN Application</span>
 
       <span class="fill-remaining-space"></span>
 
-      <button md-icon-button [md-menu-trigger-for]="menu">
-        <md-icon class="title">more_vert</md-icon>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon class="title">more_vert</mat-icon>
       </button>
 
-  </md-toolbar>
-  <md-menu x-position="before" #menu="mdMenu">
+  </mat-toolbar>
+  <mat-menu x-position="before" #menu="matMenu">
       <div *ngIf="!isLoggedIn">
-        <a md-menu-item routerLink="login">Login</a>
-        <a md-menu-item routerLink="signup">Signup</a>
+        <a mat-menu-item routerLink="login">Login</a>
+        <a mat-menu-item routerLink="signup">Signup</a>
       </div>
 
       <div *ngIf="isLoggedIn">
-        <button md-menu-item (click)="openDialog()">Settings</button>
-        <button md-menu-item>Help</button>
-        <a md-menu-item routerLink="login" (click)="logout()">Logout</a>
+        <button mat-menu-item (click)="openDialog()">Settings</button>
+        <button mat-menu-item>Help</button>
+        <a mat-menu-item routerLink="login" (click)="logout()">Logout</a>
       </div>
-  </md-menu>
-  <router-outlet></router-outlet>  
-</md-sidenav-container>
+  </mat-menu>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

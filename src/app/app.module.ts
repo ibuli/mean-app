@@ -2,9 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
+import {
+  MatInputModule,
+  MatButtonModule,
+  MatSelectModule,
+  MatIconModule,
+  MatListModule,
+  MatSidenavModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatCardModule
+} from '@angular/material';
 import { HttpModule, JsonpModule } from '@angular/http';
-import { FormsModule, ReactiveFormsModule  }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CookieModule } from 'ngx-cookie';
 
@@ -17,7 +27,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { routing } from './app.routing';
 import { AuthService } from '../_services/auth.service';
 import { AuthGuard } from '../_guards/auth.guard';
-
 
 @NgModule({
   declarations: [
@@ -34,13 +43,18 @@ import { AuthGuard } from '../_guards/auth.guard';
     MatSelectModule,
     MatButtonModule,
     MatInputModule,
+    MatListModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatCardModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
     routing,
     CookieModule.forRoot()
   ],
-  providers: [ AuthService, AuthGuard ],
-  bootstrap: [ AppComponent ]
+  providers: [AuthService, AuthGuard],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
