@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { MaterialModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule  }   from '@angular/forms';
 
@@ -30,7 +30,10 @@ import { AuthGuard } from '../_guards/auth.guard';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    MatIconModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatInputModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,

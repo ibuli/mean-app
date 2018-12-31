@@ -7,7 +7,7 @@ import { AuthService } from '../_services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   isLoggedIn: boolean;
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     console.log('Checking in app component => ' + this.isLoggedIn);
   }
 
-  logout(){
+  logout() {
     this.isLoggedIn = false;
     this.cookieService.remove('token');
     this.router.navigate['/'];

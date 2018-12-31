@@ -1,21 +1,21 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { Observable }  from 'rxjs/Observable';
-import { CookieService } from 'ngx-cookie';
-import { Router } from '@angular/router';
+import { Observable }  from 'rxjs/observable';
+// import { CookieService } from 'ngx-cookie';
+// import { Router } from '@angular/router';
 
 import { AuthService } from '../../_services/auth.service';
-import { AuthGuard } from '../../_guards/auth.guard';
+// import { AuthGuard } from '../../_guards/auth.guard';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private authService: AuthService) {  }
-
   isLoggedIn: boolean;
+
+  constructor(private authService: AuthService) {  }
 
   ngOnInit() {
     this.isLoggedIn = this.authService.isLoggedIn();

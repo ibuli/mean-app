@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable }  from 'rxjs/Observable';
+import { Observable }  from 'rxjs/observable';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 
@@ -10,10 +10,11 @@ const EMAIL_REGEX = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
   SignupForm: FormGroup;
+  isLoggedIn: boolean;
 
   constructor(public formBuilder: FormBuilder,
               private authService: AuthService,
@@ -26,7 +27,6 @@ export class SignupComponent implements OnInit {
       password: ['', Validators.required ]
     });
    }
-  isLoggedIn: boolean;
   ngOnInit() {
     const token = this.cookieService.get('token');
     if (token != null) {

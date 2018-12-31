@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable }  from 'rxjs/Observable';
+import { Observable }  from 'rxjs/observable';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 
@@ -11,11 +11,13 @@ const EMAIL_REGEX = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 
 export class LoginComponent implements OnInit {
   LoginForm: FormGroup;
+  isLoggedIn: boolean;
+  data: any;
 
   constructor(public formBuilder: FormBuilder,
               private authService: AuthService,
@@ -39,8 +41,6 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = this.authService.isLoggedIn();
     }
   }
-  isLoggedIn: boolean;
-  data: any;
   Login() {
     this.authService.Login(this.LoginForm.value).subscribe(
       res => {
