@@ -1,5 +1,5 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { Observable }  from 'rxjs/observable';
+import { Observable }  from 'rxjs';
 // import { CookieService } from 'ngx-cookie';
 // import { Router } from '@angular/router';
 

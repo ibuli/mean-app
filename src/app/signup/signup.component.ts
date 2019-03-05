@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable }  from 'rxjs/observable';
+import { Observable }  from 'rxjs';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 
