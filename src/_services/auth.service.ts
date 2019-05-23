@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie';
 import { map } from 'rxjs/operators';
 
