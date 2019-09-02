@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "mean-app",
-  "alias": ["mean-app.now.sh"],
+  "alias": ["meanstack-app.now.sh"],
   "builds": [
     {
       "src": "package.json",
