@@ -26,6 +26,15 @@
             Password is <strong>required</strong>
           </mat-error>
         </mat-form-field>
+        <mat-form-field class="mat-form-field" required>
+          <input matInput placeholder="Confirm Password" type="text" formControlName="confirmPassword" required>
+          <mat-error *ngIf="SignupForm.get('confirmPassword').hasError('required')">
+            Confirm Password is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="SignupForm.get('confirmPassword').hasError('notSame')"> 
+            Passwords do not match
+          </mat-error>
+        </mat-form-field>
     </mat-card-content>
     <button mat-raised-button [disabled]="!Signupform.form.valid">Signup</button><br><br>
   </form>
