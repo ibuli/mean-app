@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormArray, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Observable }  from 'rxjs';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
@@ -24,8 +24,9 @@ export class SignupComponent implements OnInit {
       username: ['', Validators.required ],
       email: ['', [ Validators.required,
                     Validators.pattern(EMAIL_REGEX) ]],
-      password: ['', Validators.required ]
-    });
+      password: ['', Validators.required ],
+      confirmPassword: ['', Validators.required]
+    }, { validators: this.checkPasswords });
    }
   ngOnInit() {
     const token = this.cookieService.get('token');
@@ -45,5 +46,11 @@ export class SignupComponent implements OnInit {
         // this.toast.show(res.message);
       }
     );
+  }
+
+  checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => { 
+    let pass = group.get('password').value;
+    let confirmPass = group.get('confirmPassword').value
+    return pass === confirmPass ? null : { notSame: true }
   }
 }
