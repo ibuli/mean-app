@@ -21,7 +21,7 @@
           </mat-error>
         </mat-form-field>
     </mat-card-content>
-    <button mat-raised-button [disabled]="!loginform.form.valid">Login</button><br><br>
+    <button mat-raised-button [disabled]="!loginform.form.valid"><span *ngIf="!isLoading">Login</span><span *ngIf="isLoading">Loading...</span></button><br><br>
   </form>
   <span class="title"> Don't have an account? </span><br><a routerLink="/signup" class="title"> Signup Here </a>
 </mat-card> 

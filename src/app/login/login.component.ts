@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   LoginForm: FormGroup;
   isLoggedIn: boolean;
   data: any;
+  isLoading: boolean;
 
   constructor(public formBuilder: FormBuilder,
               private authService: AuthService,
@@ -42,17 +43,20 @@ export class LoginComponent implements OnInit {
     }
   }
   Login() {
+    this.isLoading = true;
     this.authService.Login(this.LoginForm.value).subscribe(
       res => {
         console.log(res);
         this.data = res.resObject;
-        if (res.token != undefined) {
+        if (res.token !== undefined) {
+          this.isLoading = false;
           const key = 'token';
           this.cookieService.put(key, res.token);
           this.isLoggedIn = this.authService.isLoggedIn();
           this.router.navigate(['/']);
         } else {
           alert(res.message);
+          this.isLoading = false;
         }
       }
     );
