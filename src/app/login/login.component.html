@@ -16,7 +16,7 @@
         </mat-form-field> <br>
         <mat-form-field class="mat-form-field" required>
           <input matInput placeholder="Password" type="password" formControlName="password" required>
-          <mat-error *ngIf="LoginForm.get('email').hasError('required')">
+          <mat-error *ngIf="LoginForm.get('password').hasError('required')">
             Password is <strong>required</strong>
           </mat-error>
         </mat-form-field>
